@@ -21,14 +21,23 @@ public class Main {
                 case 1:
                     cadastro.cadastrar(sc);
                     break;
+                case 2:
+                    cadastro.editar(sc);
+                    break;
+                case 3:
+                    cadastro.excluir(sc);
+                    break;
                 case 4:
                     cadastro.listar();
+                    break;
+                case 5:
+                    cadastro.vender(sc);
                     break;
                 case 0:
                     System.out.println("Saindo...");
                     break;
                 default:
-                    System.out.println("Opção ainda não implementada.");
+                    System.out.println("Opção inválida.");
             }
         } while (opcao != 0);
 
