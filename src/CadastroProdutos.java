@@ -17,11 +17,10 @@ public class CadastroProdutos {
             int codigo = sc.nextInt();
             sc.nextLine();
 
-            for (Produto p : produtos) {
-                if (p.getCodigo() == codigo) {
-                    System.out.println("Erro: Já existe um produto cadastrado com esse código!");
-                    return;
-                }
+            // Verifica se o código já existe
+            if (buscarProdutoPorCodigo(codigo) != null) {
+                System.out.println("Erro: Já existe um produto cadastrado com esse código!");
+                return;
             }
 
             System.out.print("Qual a descrição: ");
@@ -66,13 +65,7 @@ public class CadastroProdutos {
         int codigo = sc.nextInt();
         sc.nextLine();
 
-        Produto produtoEncontrado = null;
-        for (Produto p : produtos) {
-            if (p.getCodigo() == codigo) {
-                produtoEncontrado = p;
-                break;
-            }
-        }
+        Produto produtoEncontrado = buscarProdutoPorCodigo(codigo);
 
         if (produtoEncontrado == null) {
             System.out.println("Produto não encontrado.");
@@ -120,13 +113,7 @@ public class CadastroProdutos {
         int codigo = sc.nextInt();
         sc.nextLine();
 
-        Produto produtoEncontrado = null;
-        for (Produto p : produtos) {
-            if (p.getCodigo() == codigo) {
-                produtoEncontrado = p;
-                break;
-            }
-        }
+        Produto produtoEncontrado = buscarProdutoPorCodigo(codigo);
 
         if (produtoEncontrado == null) {
             System.out.println("Produto não encontrado.");
@@ -142,13 +129,7 @@ public class CadastroProdutos {
         int codigo = sc.nextInt();
         sc.nextLine();
 
-        Produto produtoEncontrado = null;
-        for (Produto p : produtos) {
-            if (p.getCodigo() == codigo) {
-                produtoEncontrado = p;
-                break;
-            }
-        }
+        Produto produtoEncontrado = buscarProdutoPorCodigo(codigo);
 
         if (produtoEncontrado == null) {
             System.out.println("Produto não encontrado.");
@@ -160,5 +141,14 @@ public class CadastroProdutos {
 
         produtos.remove(produtoEncontrado);
         System.out.println("Venda realizada com sucesso!");
+    }
+
+    private Produto buscarProdutoPorCodigo(int codigo) {
+        for (Produto p : produtos) {
+            if (p.getCodigo() == codigo) {
+                return p;
+            }
+        }
+        return null;
     }
 }
