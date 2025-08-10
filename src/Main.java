@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         CadastroProdutos cadastro = new CadastroProdutos();
         int opcao;
 
@@ -14,24 +14,24 @@ public class Main {
             System.out.println("5 - Vender");
             System.out.println("0 - Sair");
             System.out.print("Escolha: ");
-            opcao = sc.nextInt();
-            sc.nextLine();
+            opcao = scan.nextInt();
+            scan.nextLine();
 
             switch (opcao) {
                 case 1:
-                    cadastro.cadastrar(sc);
+                    cadastro.cadastrar(scan);
                     break;
                 case 2:
-                    cadastro.editar(sc);
+                    cadastro.editar(scan);
                     break;
                 case 3:
-                    cadastro.excluir(sc);
+                    cadastro.excluir(scan);
                     break;
                 case 4:
                     cadastro.listar();
                     break;
                 case 5:
-                    cadastro.vender(sc);
+                    cadastro.vender(scan);
                     break;
                 case 0:
                     System.out.println("Saindo...");
@@ -41,6 +41,6 @@ public class Main {
             }
         } while (opcao != 0);
 
-        sc.close();
+        scan.close();
     }
 }

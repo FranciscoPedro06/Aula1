@@ -17,6 +17,13 @@ public class CadastroProdutos {
             int codigo = sc.nextInt();
             sc.nextLine();
 
+            for (Produto p : produtos) {
+                if (p.getCodigo() == codigo) {
+                    System.out.println("Erro: Já existe um produto cadastrado com esse código!");
+                    return;
+                }
+            }
+
             System.out.print("Qual a descrição: ");
             String descricao = sc.nextLine();
 
