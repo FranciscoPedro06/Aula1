@@ -17,7 +17,6 @@ public class CadastroProdutos {
             int codigo = sc.nextInt();
             sc.nextLine();
 
-            // Verifica se o código já existe
             if (buscarProdutoPorCodigo(codigo) != null) {
                 System.out.println("Erro: Já existe um produto cadastrado com esse código!");
                 return;
